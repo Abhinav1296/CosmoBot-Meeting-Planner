@@ -1,0 +1,806 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #ff6b00;
+    --secondary-color: #2c3e50;
+    --accent-color: #ff8533;
+    --cosmic-purple: #8a2be2;
+    --cosmic-blue: #00d4ff;
+    --cosmic-gradient: linear-gradient(135deg, #ff6b00, #ff8533, #8a2be2, #00d4ff);
+    --background-color: #0a0a1a;
+    --text-color: #e0e0e0;
+    --light-text: #ffffff;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--background-color) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="500" cy="500" r="400" fill="none" stroke="rgba(255,107,0,0.05)" stroke-width="2"><animate attributeName="r" values="400;450;400" dur="10s" repeatCount="indefinite"/></circle></svg>');
+    overflow-x: hidden;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 26, 0.9);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    color: var(--cosmic-blue);
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--cosmic-gradient);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: var(--cosmic-purple);
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 2rem;
+    color: var(--light-text);
+    cursor: pointer;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 10;
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4.5rem;
+    color: var(--light-text);
+    text-shadow: 0 0 20px rgba(255, 107, 0, 0.8), 0 0 40px rgba(138, 43, 226, 0.6);
+    animation: cosmicText 3s infinite ease-in-out;
+}
+
+@keyframes cosmicText {
+    0%, 100% { text-shadow: 0 0 20px rgba(255, 107, 0, 0.8); }
+    50% { text-shadow: 0 0 40px rgba(0, 212, 255, 0.8); }
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-button {
+    padding: 15px 40px;
+    background: var(--cosmic-gradient);
+    color: var(--light-text);
+    border: none;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 5px 25px rgba(255, 107, 0, 0.6);
+    transition: all 0.4s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.8);
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 107, 0, 0.2), transparent);
+    animation: cosmicWave 8s infinite;
+    z-index: 0;
+}
+
+@keyframes cosmicWave {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+.features {
+    padding: 100px 40px;
+    text-align: center;
+    background: rgba(10, 10, 26, 0.7);
+}
+
+.features h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: var(--cosmic-purple);
+    text-shadow: 0 0 15px rgba(138, 43, 226, 0.8);
+    margin-bottom: 60px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: linear-gradient(145deg, #1a1a2e, #16213e);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s ease;
+    border: 2px solid var(--cosmic-blue);
+}
+
+.feature-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 15px 50px rgba(0, 212, 255, 0.6);
+}
+
+.feature-card i {
+    font-size: 3rem;
+    color: var(--cosmic-gradient);
+    margin-bottom: 20px;
+    animation: iconPulse 2s infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.feature-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: var(--light-text);
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.meeting-planner {
+    padding: 100px 40px;
+    background: linear-gradient(145deg, #0a0a1a, #16213e);
+    text-align: center;
+}
+
+.meeting-planner h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: var(--cosmic-blue);
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
+    margin-bottom: 60px;
+}
+
+.meeting-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.meeting-form input,
+.meeting-form textarea {
+    padding: 15px 20px;
+    border: 2px solid var(--cosmic-purple);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--light-text);
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.meeting-form input:focus,
+.meeting-form textarea:focus {
+    border-color: var(--cosmic-blue);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+}
+
+.meeting-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.meeting-form button {
+    padding: 15px 40px;
+    background: var(--cosmic-gradient);
+    color: var(--light-text);
+    border: none;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 5px 25px rgba(255, 107, 0, 0.6);
+    transition: all 0.4s ease;
+}
+
+.meeting-form button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 40px rgba(138, 43, 226, 0.8);
+}
+
+.schedule-output {
+    margin-top: 40px;
+    padding: 30px;
+    background: rgba(22, 33, 62, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    color: var(--light-text);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+}
+
+.contact {
+    padding: 100px 40px;
+    background: rgba(10, 10, 26, 0.9);
+    text-align: center;
+}
+
+.contact h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: var(--cosmic-gradient);
+    text-shadow: 0 0 15px rgba(255, 107, 0, 0.8);
+    margin-bottom: 60px;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px 20px;
+    border: 2px solid var(--cosmic-blue);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--light-text);
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--cosmic-purple);
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form button {
+    padding: 15px 40px;
+    background: var(--cosmic-gradient);
+    color: var(--light-text);
+    border: none;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 5px 25px rgba(0, 212, 255, 0.6);
+    transition: all 0.4s ease;
+}
+
+.contact-form button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 40px rgba(255, 107, 0, 0.8);
+}
+
+.chatbot-container {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    z-index: 2000;
+}
+
+.chatbot-button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--cosmic-gradient);
+    color: var(--light-text);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 0 20px rgba(255, 107, 0, 0.8), 0 0 40px rgba(138, 43, 226, 0.6);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    animation: cosmicPulse 2s infinite ease-in-out;
+}
+
+@keyframes cosmicPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 107, 0, 0.8); }
+    50% { transform: scale(1.1); box-shadow: 0 0 40px rgba(138, 43, 226, 1); }
+}
+
+.chatbot-button:hover {
+    transform: scale(1.2) rotate(10deg);
+    box-shadow: 0 0 60px rgba(0, 212, 255, 0.9);
+}
+
+.chatbot-button-effect {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.6s ease;
+}
+
+.chatbot-button:hover .chatbot-button-effect {
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+.chatbot-tooltip {
+    position: absolute;
+    bottom: 100px;
+    background: rgba(44, 62, 80, 0.95);
+    color: var(--light-text);
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Orbitron', sans-serif;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    border: 1px solid var(--cosmic-blue);
+}
+
+.chatbot-button:hover .chatbot-tooltip {
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+.chatbot-window {
+    position: fixed;
+    bottom: 120px;
+    right: 20px;
+    width: 450px;
+    height: 600px;
+    background: linear-gradient(145deg, #1a1a2e, #16213e);
+    border-radius: 25px;
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 107, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    animation: portalOpen 0.5s ease-out;
+    border: 2px solid var(--cosmic-purple);
+}
+
+@keyframes portalOpen {
+    0% { transform: scale(0.5) translateY(100%); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.chatbot-background-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,107,0,0.1)" stroke-width="2" opacity="0.3"><animate attributeName="r" values="80;90;80" dur="4s" repeatCount="indefinite"/></circle></svg>');
+    opacity: 0.2;
+    pointer-events: none;
+    animation: cosmicWave 4s infinite;
+}
+
+.chatbot-header {
+    background: var(--cosmic-gradient);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.chatbot-header::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+    animation: headerShine 6s infinite;
+}
+
+@keyframes headerShine {
+    0% { transform: translateX(-100%) translateY(-100%); }
+    100% { transform: translateX(100%) translateY(100%); }
+}
+
+.chatbot-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.chatbot-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid var(--cosmic-blue);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.chatbot-avatar:hover {
+    transform: rotate(360deg);
+}
+
+.chatbot-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.chatbot-header h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--light-text);
+    text-shadow: 0 0 10px rgba(255, 107, 0, 0.8);
+    margin: 0;
+}
+
+.status-indicator {
+    font-size: 0.9rem;
+    color: #00ffcc;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-indicator::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #00ffcc;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ffcc;
+    animation: statusBlink 1.5s infinite;
+}
+
+@keyframes statusBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.close-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--light-text);
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close-button:hover {
+    background: rgba(255, 75, 75, 0.8);
+    transform: rotate(90deg);
+}
+
+.chatbot-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 25px;
+    background: rgba(22, 33, 62, 0.9);
+    position: relative;
+}
+
+.chatbot-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chatbot-messages::-webkit-scrollbar-thumb {
+    background: var(--cosmic-purple);
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+.chatbot-messages::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.message {
+    margin-bottom: 20px;
+    max-width: 85%;
+    padding: 15px 20px;
+    border-radius: 20px;
+    line-height: 1.6;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    animation: messageWarp 0.4s ease-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes messageWarp {
+    0% { transform: scale(0.8) translateX(50px); opacity: 0; }
+    100% { transform: scale(1) translateX(0); opacity: 1; }
+}
+
+.user-message {
+    background: var(--cosmic-gradient);
+    color: var(--light-text);
+    margin-left: auto;
+    border-bottom-right-radius: 5px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.user-message::after {
+    content: '';
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 12px solid var(--cosmic-purple);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+.bot-message {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--text-color);
+    margin-right: auto;
+    border-bottom-left-radius: 5px;
+}
+
+.bot-message::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-right: 12px solid rgba(255, 255, 255, 0.95);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+.message.typing {
+    background: rgba(255, 255, 255, 0.2);
+    color: #00d4ff;
+    font-style: italic;
+    position: relative;
+    overflow: hidden;
+}
+
+.message.typing::after {
+    content: '•••';
+    display: inline-block;
+    animation: cosmicTyping 1s infinite;
+}
+
+@keyframes cosmicTyping {
+    0% { content: '•'; opacity: 0.5; }
+    33% { content: '••'; opacity: 0.75; }
+    66% { content: '•••'; opacity: 1; }
+}
+
+.chatbot-input {
+    padding: 20px;
+    background: rgba(26, 26, 46, 0.9);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    border-top: 1px solid rgba(255, 107, 0, 0.3);
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.chatbot-input input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid var(--cosmic-blue);
+    border-radius: 30px;
+    outline: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--light-text);
+    font-family: 'Orbitron', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.chatbot-input input:focus {
+    border-color: var(--cosmic-purple);
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.chatbot-input input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+}
+
+.chatbot-input button {
+    padding: 15px 25px;
+    background: var(--cosmic-gradient);
+    color: var(--light-text);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.5);
+}
+
+.chatbot-input button:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 25px rgba(0, 212, 255, 0.8);
+}
+
+.send-text {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.chatbot-input button:hover .send-text {
+    transform: translateX(5px);
+}
+
+footer {
+    padding: 40px;
+    text-align: center;
+    background: rgba(10, 10, 26, 0.9);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    border-top: 1px solid rgba(255, 107, 0, 0.3);
+}
+
+footer p {
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 26, 0.95);
+        padding: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .features {
+        padding: 60px 20px;
+    }
+
+    .meeting-planner {
+        padding: 60px 20px;
+    }
+
+    .contact {
+        padding: 60px 20px;
+    }
+
+    .chatbot-window {
+        width: 100%;
+        height: 100vh;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+    }
+
+    .chatbot-button {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .chatbot-tooltip {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}

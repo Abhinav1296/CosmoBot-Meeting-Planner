@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Meeting Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">🌌 AI Meeting Planner</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-toggle"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Warp Your Meetings into Cosmic Order</h1>
+            <p>Unleash the power of interdimensional scheduling with AI precision.</p>
+            <button class="cta-button">Enter the Cosmos</button>
+        </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <section id="features" class="features">
+        <h2>🌠 Galactic Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <i class="fas fa-rocket"></i>
+                <h3>Instant Scheduling</h3>
+                <p>Warp-speed meeting creation across dimensions.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-brain"></i>
+                <h3>AI Intelligence</h3>
+                <p>Cosmic insights for flawless planning.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-users"></i>
+                <h3>Team Sync</h3>
+                <p>Align your crew across the galaxy.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule" class="meeting-planner">
+        <h2>🪐 Command Your Meetings</h2>
+        <form id="meeting-form" class="meeting-form">
+            <input type="text" id="meeting-title" placeholder="Meeting Title" required>
+            <input type="date" id="meeting-date" required>
+            <input type="time" id="meeting-time" required>
+            <input type="number" id="meeting-duration" placeholder="Duration (minutes)" min="1" required>
+            <input type="text" id="meeting-participants" placeholder="Participants (comma-separated)" required>
+            <textarea id="meeting-preferences" placeholder="Preferences or Notes"></textarea>
+            <button type="submit">Transmit to Cosmos</button>
+        </form>
+        <div id="schedule-output" class="schedule-output"></div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>📡 Contact the Cosmos</h2>
+        <form id="contact-form" class="contact-form">
+            <input type="text" id="contact-name" placeholder="Your Name" required>
+            <input type="email" id="contact-email" placeholder="Your Email" required>
+            <textarea id="contact-message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Transmission</button>
+        </form>
+    </section>
+
+    <div class="chatbot-container">
+        <button id="chatbot-button" class="chatbot-button">
+            <i class="fas fa-robot"></i>
+            <span class="chatbot-tooltip">Your Cosmic AI Assistant</span>
+            <div class="chatbot-button-effect"></div>
+        </button>
+        <div id="chatbot-window" class="chatbot-window">
+            <div class="chatbot-header">
+                <div class="chatbot-profile">
+                    <img src="https://i.imgur.com/8K5Z5Z5.png" alt="AI Avatar" class="chatbot-avatar">
+                    <div class="chatbot-info">
+                        <h3>CosmoBot</h3>
+                        <span class="status-indicator">Transcending Reality</span>
+                    </div>
+                </div>
+                <button id="close-chatbot" class="close-button">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages"></div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input" placeholder="Ask me anything, mortal...">
+                <button onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                    <span class="send-text">Transmit</span>
+                </button>
+            </div>
+            <div class="chatbot-background-effect"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 AI Meeting Planner - Powered by Cosmic Forces</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY';
+    </script>
+</body>
+</html>
