@@ -1,5 +1,5 @@
 // No API key defined here yet—we’ll add it after you generate one
-let GEMINI_API_KEY = 'AIzaSyDarB9TqKuL09GLax2x9hxVS2q0z4kn-GQ';
+let GEMINI_API_KEY = 'your-new-api-key-here';
 
 // Store scheduled meetings
 let scheduledMeetings = [];
